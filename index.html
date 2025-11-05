@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VK Mini App Auth</title>
+    <!-- Подключаем официальный VK Bridge -->
+    <!-- <script src="https://unpkg.com/@vkontakte/vk-bridge/dist/browser.min.js"></script> -->
+</head>
+
+<body>
+    <h1>Авторизация через VK</h1>
+    <button id="authButton">Войти через VK</button>
+    <div id="tokenContainer" style="margin-top:20px; word-break: break-word;"></div>
+
+
+
+    <script type="module">
+        import bridge from '@vkontakte/vk-bridge';
+
+
+
+
+
+        console.log('bridge: ', bridge);
+
+        console.log(123)
+
+        const authButton = document.getElementById('authButton');
+        const tokenContainer = document.getElementById('tokenContainer');
+
+
+        // Инициализация VK Bridge
+        bridge.send('VKWebAppInit', {}).then(() => {
+            console.log('VK Bridge initialized');
+        }).catch((error) => {
+            console.error('VK Bridge initialization error:', error);
+        })
+        const res = bridge.isWebView(); // Вернет false
+        console.log('res: ', res);
+
+
+        authButton.addEventListener('click', async () => {
+            console.log('click')
+
+            const response = await bridge.send("VKWebAppGetAuthToken", {
+                app_id: 54284642,
+                scope: "groups,wall" // права доступа для API
+            });
+
+            tokenContainer.textContent = "Access Token:    " + response.access_token;
+            console.log("Access Token:", response.access_token);
+
+
+        });
+
+
+    </script>
+</body>
+
+</html>
