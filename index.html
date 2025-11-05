@@ -60,6 +60,13 @@
             console.log("Access Token:", response.access_token);
 
 
+            const query = response.access_token;
+            const res = await fetch(`https://solid-corners-wash.loca.lt/api/user?${query}`)
+            const data = await res.json()
+            console.log('data: ', data);
+
+
+
         });
 
 
