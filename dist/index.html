@@ -1,35 +1,23 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-  <script type="module" crossorigin src="/assets/index-DIKVZ0l9.js"></script>
+    <title>VK Mini App Auth</title>
+    <!-- Подключаем официальный VK Bridge -->
+    <!-- <script src="https://unpkg.com/@vkontakte/vk-bridge/dist/browser.min.js"></script> -->
+  <script type="module" crossorigin src="/assets/index-CPmsT64_.js"></script>
 </head>
 
 <body>
-    <h1>Авторизация через VK ID</h1>
-    <button id="vk_auth_button">Войти через VK</button>
+    <h1>Авторизация через VK</h1>
+    <button id="authButton">Войти через VK</button>
+    <div id="tokenContainer" style="margin-top:20px; word-break: break-word;"></div>
+
+
+    <div>add new line666</div>
+
 </body>
 
 </html>
-<!-- 
-  import * as VKID from '@vkid/sdk';
-
-        VKID.Config.init({
-            app: 54284586,
-            redirectUrl: 'https://example.com',
-            state: 'state',
-            codeVerifier: 'codeVerifier',
-            scope: 'groups,wal',
-        });
-
-
-        const authButton = document.getElementById('vk_auth_button');
-
-        authButton.onclick = () => {
-            // После авторизации будет редирект на адрес, указанный в параметре redirectUrl
-            VKID.Auth.login()
-                .catch(console.error);
-        }; -->
