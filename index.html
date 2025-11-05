@@ -27,9 +27,6 @@
         import bridge from '@vkontakte/vk-bridge';
 
 
-
-
-
         console.log('bridge: ', bridge);
 
         console.log(123)
@@ -61,7 +58,9 @@
 
 
             const query = response.access_token;
-            const res = await fetch(`https://bright-beers-talk.loca.lt/api/user?token=${query}`)
+            const uri = "https://weak-pots-hunt.loca.lt"
+
+            const res = await fetch(`${uri}/api/user?token=${query}`)
             const data = await res.json()
             console.log('data: ', data);
 
